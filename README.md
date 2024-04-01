@@ -52,7 +52,6 @@
 - has_one    :delivery_address
 
 
-
 ## delivery_addresses"住所" テーブル
 
 | Column         | Type       | Options                        |
