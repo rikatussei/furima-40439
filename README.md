@@ -1,86 +1,48 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # テーブル設計
 
 ## users テーブル
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
-| name               | string | null: false               |
-| profile            | text   | null: false               |
-| occupation         | text   | null: false               |
-| position           | text   | null: false               |
-
-
-
-# テーブル設計「参考用」正式なテーブル作成後は削除を実施。
-
-## users テーブル
-
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| name               | string | null: false               |
-| profile            | text   | null: false               |
-| occupation         | text   | null: false               |
-| position           | text   | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
 
 ### Association
-
-- has_many :prototypes
-- has_many :comments
-
-
-## prototypes テーブル
-
-| Column         | Type      | Options                        |
-| -------------- | --------- | ------------------------------ |
-| title          | string    | null: false                    |
-| catch_copy     | text      | null: false                    |
-| concept        | text      | null: false                    |
-| user           | references| null: false, foreign_key: true |
-
-### Association
-
-- has_many   :comments
-- belongs to :user
+- has_many :items
+- has_one  :delivery_addresses
 
 
-## comments テーブル
+## items テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| content   | text       | null: false                    |
-| prototype | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
+| Column              | Type      | Options                        |
+| ------------------- | --------- | ------------------------------ |
+| product_name        | string    | null: false                    |
+| product_description | text      | null: false                    |
+| price               | integer   | null: false                    |
+| seller_id           | references| null: false, foreign_key: true |
 
 ### Association
-
 - belongs_to :user
-- belongs_to :prototype
+- has_one  :delivery_addresses
+
+
+## delivery_addresses テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| postal_code    | string     | null: false                    |
+| city           | string     | null: false                    |
+| street_address | string     | null: false                    |
+| building_name  | string     | null: false                    |
+| phone_number   | string     | null: false                    |
+| buyer_id       | references | null: false, foreign_key: true |
+| item_id        | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :item
