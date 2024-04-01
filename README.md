@@ -31,7 +31,7 @@
 - has_one  :delivery_addresses
 
 
-## delivery_addresses テーブル
+## orders テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
