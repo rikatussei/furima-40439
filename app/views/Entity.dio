@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="PV2sVgIM7Qp42hRVFGMZ" name="ページ1">
+        <mxGraphModel dx="680" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="78" value="ユーザー情報" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="110" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="・ニックネーム&#10;・メールアドレス&#10;・パスワード&#10;・パスワード（確認用）&#10;・苗字&#10;・名前&#10;・苗字（カナ）&#10;・名前（カナ）&#10;・生年月日（年）（※）&#10;・生年月日（月）（※）&#10;・生年月日（日）（※）&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="78" vertex="1">
+                    <mxGeometry y="30" width="160" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="商品情報" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="430" width="260" height="195" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="・画像（紐付け）&#10;・商品名&#10;・商品の説明&#10;・カテゴリー（※）&#10;・商品の状態（※）&#10;・配送料の負担（※）&#10;・発送元の地域（※）&#10;・発送までの日数（※）&#10;・値段&#10;・出品者（ユーザー情報）：外部キー" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="80" vertex="1">
+                    <mxGeometry y="30" width="260" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="発送先情報delivery_addresses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="110" width="230" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="・購入者&#10;・発送先（郵便番号）&#10;・発送先（都道府県）（※）&#10;・発送先（市区町村）&#10;・発送先（番地）&#10;・発送先（建物名）&#10;・電話番号" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="82" vertex="1">
+                    <mxGeometry y="30" width="230" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
