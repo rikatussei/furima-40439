@@ -11,9 +11,7 @@
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birth_year_id      | string | null: false               |
-| birth_month_id     | string | null: false               |
-| birth_day_id       | string | null: false               |
+| birthday_id        | date   | null: false               |
 
 ### Association
 - has_many :items
@@ -26,13 +24,13 @@
 | ------------------- | --------- | ------------------------------ |
 | product_name        | string    | null: false                    |
 | product_description | text      | null: false                    |
-| category_id         | string    | null: false                    |
-| item_condition_id   | string    | null: false                    |
-| shipping_cost_id    | string    | null: false                    |
-| delivery_time_id    | string    | null: false                    |
-| departure_area_id   | string    | null: false                    |
+| category_id         | integer   | null: false                    |
+| item_condition_id   | integer   | null: false                    |
+| shipping_cost_id    | integer   | null: false                    |
+| delivery_time_id    | integer   | null: false                    |
+| departure_area_id   | integer   | null: false                    |
 | price               | integer   | null: false                    |
-| user_id             | references| null: false, foreign_key: true |
+| user                | references| null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -43,8 +41,8 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| user_id        | references | null: false, foreign_key: true |
-| item_id        | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -57,11 +55,12 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | city           | string     | null: false                    |
 | street_address | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
-| order_id       | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :order
