@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :delivery_time_id, presence: true
   validates :price, presence: true
 
-  # has_one_attached :image
+  has_one_attached :image
 
 
   # validates :content, presence: true, unless: :was_attached?
