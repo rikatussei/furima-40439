@@ -38,31 +38,31 @@ RSpec.describe Item, type: :model do
       end
 
       it "category_idが空では出品できない" do
-        @item.category_id = nil
+        @item.category_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it "item_condition_idが空では出品できない" do
-        @item.item_condition_id = nil
+        @item.item_condition_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Item condition can't be blank")
       end
 
       it "shipping_cost_idが空では出品できない" do
-        @item.shipping_cost_id = nil
+        @item.shipping_cost_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
       end
 
       it "prefecture_idが空では出品できない" do
-        @item.prefecture_id = nil
+        @item.prefecture_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
   
       it "delivery_time_idが空では出品できない" do
-        @item.delivery_time_id = nil
+        @item.delivery_time_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery time can't be blank")
       end
