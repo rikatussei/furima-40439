@@ -2,11 +2,6 @@ class Item < ApplicationRecord
 
   validates :product_name, presence: true
   validates :product_description, presence: true
-  validates :category_id, presence: true
-  validates :item_condition_id, presence: true
-  validates :shipping_cost_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :delivery_time_id, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :price, presence: true
   validates :image, presence: true

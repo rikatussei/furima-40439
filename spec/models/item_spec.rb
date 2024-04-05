@@ -13,6 +13,12 @@ RSpec.describe Item, type: :model do
     end
 
     context '出品ができない場合' do
+      it "ユーザー情報がない場合は登録できないこと" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
+
       it "imageが空では出品できない" do
         @item.image = nil
         @item.valid?
@@ -34,31 +40,31 @@ RSpec.describe Item, type: :model do
       it "category_idが空では出品できない" do
         @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank", "Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it "item_condition_idが空では出品できない" do
         @item.item_condition_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition can't be blank", "Item condition can't be blank")
+        expect(@item.errors.full_messages).to include("Item condition can't be blank")
       end
 
       it "shipping_cost_idが空では出品できない" do
         @item.shipping_cost_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping cost can't be blank", "Shipping cost can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
       end
 
       it "prefecture_idが空では出品できない" do
         @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank", "Prefecture can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
   
       it "delivery_time_idが空では出品できない" do
         @item.delivery_time_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery time can't be blank", "Delivery time can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery time can't be blank")
       end
 
       it "priceが空では出品できない" do
