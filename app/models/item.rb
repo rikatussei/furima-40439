@@ -7,9 +7,8 @@ class Item < ApplicationRecord
   validates :shipping_cost_id, presence: true
   validates :prefecture_id, presence: true
   validates :delivery_time_id, presence: true
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :price, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-  validates :price, format: { with: /\A\d+\z/, message: "は半角数字のみ有効です" }
   validates :image, presence: true
 
   has_one_attached :image
