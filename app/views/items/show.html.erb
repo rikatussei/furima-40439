@@ -26,8 +26,7 @@
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% if user_signed_in?%> 
-    <%# <% if user_signed_in? && @item.is_listed %>
+    <% if user_signed_in? && @item.is_listed %>
     <%# <% if '商品詳細画面にアクセスしたユーザーが出品者である' %> 
       <%# <% if current_user.is_seller?(@item) %> 
       <%# <% if '商品詳細画面にアクセスしたユーザーが出品者である' %>
