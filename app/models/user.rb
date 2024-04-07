@@ -19,10 +19,6 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :first_name_kana, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' }
 
-  # def is_seller?(item)
-  #   self.id == item.user_id
-  # end
-
   has_many :items, dependent: :destroy
   # 後で有効化
   # has_many :orders, dependent: :destroy

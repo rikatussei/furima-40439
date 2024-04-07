@@ -22,10 +22,6 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_time_id, numericality: { other_than: 1, message: "can't be blank" }
 
-  # def is_listed
-  #   self.listed
-  # end
-
   # 後で有効化
   # has_one    :order, dependent: :destroy
 end
