@@ -41,16 +41,14 @@ class ItemsController < ApplicationController
                                  :prefecture_id, :delivery_time_id, :price, :image).merge(user_id: current_user.id)
   end
 
-
   def move_to_index
     @item = Item.find(params[:id])
-    if current_user.id != @item.user_id
+    return unless current_user.id != @item.user_id
+
     redirect_to action: :index
-    end
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
