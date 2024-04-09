@@ -27,5 +27,5 @@ class Item < ApplicationRecord
   # end
 
   # 後で有効化
-  # has_one    :order, dependent: :destroy
+  has_one   :order, dependent: :destroy
 end
