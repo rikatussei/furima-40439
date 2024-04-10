@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, only: :index
+  before_action :move_to_items_index, only: :index
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
@@ -31,4 +32,12 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order_delivery_address).permit(:postal_code, :prefecture_id, :city, :street_address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
+
+  def move_to_items_index
+    @item = Item.find(params[:item_id])
+    if current_user.id == @item.user_id || @item.order != nil
+       redirect_to items_index_path
+    end
+  end
 end
+
