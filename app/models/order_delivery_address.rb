@@ -10,7 +10,8 @@ class OrderDeliveryAddress
     validates :city
     validates :street_address
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only number' }
-    validates :phone_number, length: { in: 10..11, message: 'is too short' }
+    validates :phone_number, length: { minimum: 10, message: 'is too short' }
+    validates :phone_number, length: { maximum: 11, message: 'is too long' }
     validates :token
   end
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }

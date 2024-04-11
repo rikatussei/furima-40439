@@ -69,7 +69,13 @@ RSpec.describe OrderDeliveryAddress, type: :model do
         expect(@order_delivery_address.errors.full_messages).to include("Phone number can't be blank")
       end
 
-      it 'phone_numberが10桁以上11桁以内の半角数値以外では保存できないこと' do
+      it 'phone_numberが12桁以上の半角数値では保存できないこと' do
+        @order_delivery_address.phone_number = '012345678912'
+        @order_delivery_address.valid?
+        expect(@order_delivery_address.errors.full_messages).to include("Phone number is too long")
+      end
+
+      it 'phone_numberが9桁以内の半角数値では保存できないこと' do
         @order_delivery_address.phone_number = '012012'
         @order_delivery_address.valid?
         expect(@order_delivery_address.errors.full_messages).to include('Phone number is too short')
