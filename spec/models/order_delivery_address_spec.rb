@@ -8,7 +8,6 @@ RSpec.describe OrderDeliveryAddress, type: :model do
   end
 
   describe '購入情報の保存' do
-
     context '内容に問題ない場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_delivery_address).to be_valid
@@ -36,13 +35,14 @@ RSpec.describe OrderDeliveryAddress, type: :model do
       it 'postal_codeが空だと保存できないこと' do
         @order_delivery_address.postal_code = ''
         @order_delivery_address.valid?
-        expect(@order_delivery_address.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid. Include hyphen(-)")
+        expect(@order_delivery_address.errors.full_messages).to include("Postal code can't be blank",
+                                                                        'Postal code is invalid. Include hyphen(-)')
       end
 
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @order_delivery_address.postal_code = '1234567'
         @order_delivery_address.valid?
-        expect(@order_delivery_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_delivery_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefecture_idを選択していないと保存できないこと' do
@@ -72,16 +72,16 @@ RSpec.describe OrderDeliveryAddress, type: :model do
       it 'phone_numberが10桁以上11桁以内の半角数値以外では保存できないこと' do
         @order_delivery_address.phone_number = '012012'
         @order_delivery_address.valid?
-        expect(@order_delivery_address.errors.full_messages).to include("Phone number is too short")
+        expect(@order_delivery_address.errors.full_messages).to include('Phone number is too short')
       end
 
       it 'phone_numberに半角数値以外を使用すると保存できないこと' do
         @order_delivery_address.phone_number = '120-123-123'
         @order_delivery_address.valid?
-        expect(@order_delivery_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+        expect(@order_delivery_address.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
 
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @order_delivery_address.token = nil
         @order_delivery_address.valid?
         expect(@order_delivery_address.errors.full_messages).to include("Token can't be blank")
