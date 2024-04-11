@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'items/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: 'items#index'
-  resources :items
+  resources :items do
+    resources :orders
+  end
   resources :users
 
   # Defines the root path route ("/")

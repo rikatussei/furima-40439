@@ -24,6 +24,5 @@ class User < ApplicationRecord
   # end
 
   has_many :items, dependent: :destroy
-  # 後で有効化
-  # has_many :orders, dependent: :destroy
+  has_many :orders, dependent: :destroy
 end
