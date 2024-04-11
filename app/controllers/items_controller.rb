@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
   def move_to_not_edit
     @item = Item.find(params[:id])
     return if @item.order.nil?
-    
+
     redirect_to items_path
   end
 end
