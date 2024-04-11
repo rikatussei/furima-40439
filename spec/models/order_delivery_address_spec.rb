@@ -72,7 +72,7 @@ RSpec.describe OrderDeliveryAddress, type: :model do
       it 'phone_numberが12桁以上の半角数値では保存できないこと' do
         @order_delivery_address.phone_number = '012345678912'
         @order_delivery_address.valid?
-        expect(@order_delivery_address.errors.full_messages).to include("Phone number is too long")
+        expect(@order_delivery_address.errors.full_messages).to include('Phone number is too long')
       end
 
       it 'phone_numberが9桁以内の半角数値では保存できないこと' do
