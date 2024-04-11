@@ -1,15 +1,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :move_to_items_index, only: :index
+  before_action :set_item, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
-    @item = Item.find(params[:item_id])
     @order_delivery_address = OrderDeliveryAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_delivery_address = OrderDeliveryAddress.new(order_params)
     if @order_delivery_address.valid?
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
@@ -40,4 +39,9 @@ class OrdersController < ApplicationController
 
     redirect_to items_index_path
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+   end
 end
+
